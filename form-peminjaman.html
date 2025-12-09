@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="modal-header">
+            <h5 class="modal-title">Form Peminjaman</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="bookingForm">
+                <div class="mb-3">
+                    <label for="date" class="form-label">Tanggal</label>
+                    <input type="text" class="form-control" id="date" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Nama Peminjam</label>
+                    <input type="text" class="form-control" id="nama">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Nomor WhatsApp</label>
+                    <input type="text" class="form-control" id="nomor-wa">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Tempat</label>
+                    <select id="tempat" class="form-select">
+                        <option value="Gelora Bung Karno">Gelora Bung Karno</option>
+                        <option value="Hutan Kota Senayan">Hutan Kota Senayan</option>
+                        <option value="Ragunan">Ragunan</option>
+                        <option value="Taman Literasi">Taman Literasi</option>
+                        <option value="Tebet Eco Park">Tebet Eco Park</option>
+                    </select>
+                </div>
+
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button class="btn btn-primary" id="saveBooking">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
+
+
+    
