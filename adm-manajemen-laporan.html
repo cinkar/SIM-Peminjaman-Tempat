@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Notifikasi & Laporan User</title>
+
+    <link rel="stylesheet" href="css/adm-manajemen-laporan.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="manajemen-laporan.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="d-flex">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h4 class="sidebar-title">Admin Panel</h4>
+
+        <a href="#" class="sidebar-item">📊 Dashboard</a>
+        <a href="#" class="sidebar-item">🏢 Manajemen Fasilitas</a>
+        <a href="#" class="sidebar-item">📝 Manajemen Reservasi</a>
+        <a href="#" class="sidebar-item">♿ Fasilitas Disabilitas</a>
+        <a href="#" class="sidebar-item active">📢 Notifikasi & Laporan</a>
+        <a href="#" class="sidebar-item">👤 Akun User</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content flex-grow-1">
+
+        <!-- TOPBAR -->
+        <nav class="topbar d-flex justify-content-between align-items-center">
+            <h5 class="m-0">Manajemen Laporan User</h5>
+            <button class="btn btn-primary btn-sm">Logout</button>
+        </nav>
+
+        <div class="container mt-4">
+
+            <!-- TITLE -->
+            <h5 class="fw-semibold mb-3">Laporan Masuk</h5>
+
+            <!-- TABLE -->
+            <div class="card p-3">
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Nama User</th>
+                                <th>Jenis Fasilitas</th>
+                                <th>Deskripsi</th>
+                                <th>Tanggal</th>
+                                <th>Status Tindak Lanjut</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Andi Saputra</td>
+                                <td>Toilet Khusus</td>
+                                <td>Fasilitas tidak berfungsi.</td>
+                                <td>10 Jan 2025</td>
+                                <td><span class="badge bg-warning">Menunggu</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetail">
+                                        Detail
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Dewi Lestari</td>
+                                <td>Jalur Landai</td>
+                                <td>Permukaan licin.</td>
+                                <td>09 Jan 2025</td>
+                                <td><span class="badge bg-success">Selesai</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetail">
+                                        Detail
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL DETAIL LAPORAN USER -->
+<div class="modal fade" id="modalDetail" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Detail Laporan User</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-semibold">Nama User</label>
+                        <input class="form-control" value="Andi Saputra" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="fw-semibold">Jenis Fasilitas</label>
+                        <input class="form-control" value="Toilet Khusus" disabled>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label class="fw-semibold">Deskripsi Masalah</label>
+                        <textarea class="form-control" rows="3" disabled>Fasilitas tidak berfungsi.</textarea>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label class="fw-semibold">Foto (Opsional)</label><br>
+                        <img src="https://via.placeholder.com/200" class="img-preview">
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label class="fw-semibold">Status Tindak Lanjut</label>
+                        <select class="form-select">
+                            <option>Menunggu</option>
+                            <option>Sedang Diproses</option>
+                            <option>Selesai</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label class="fw-semibold">Balasan Admin</label>
+                        <textarea class="form-control" rows="3" placeholder="Tambahkan balasan..."></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button class="btn btn-success">Kirim Balasan</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
