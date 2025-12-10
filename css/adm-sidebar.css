@@ -1,0 +1,36 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f5f7fb;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 240px;
+    background: #2d6cdf;
+    min-height: 100vh;
+    padding: 25px 15px;
+    color: white;
+    position: fixed;
+}
+
+.sidebar-title {
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.sidebar-item {
+    display: block;
+    padding: 10px 12px;
+    margin: 6px 0;
+    color: #ffffffc9;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+    background: #1e54b8;
+    color: #fff;
+}
