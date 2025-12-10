@@ -4,15 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <title>Home</title>
 </head>
 <body>
     
     <div id="navbar"></div>
 
-    <table>
-        <tr>
-            <td>
+    <table style="margin-top: 50px;">
+        <tr >
+            <td rowspan="2" class="info-home" style="width: 650px;">
                 <div id="carouselExampleCaptions" class="carousel slide">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -52,14 +54,18 @@
                     </button>
                 </div>
             </td>
-            <td class="info-web">Website peminjaman tempat umum ini bertujuan untuk mempermudah masyarakat dalam menemukan, melihat ketersediaan, dan memesan berbagai fasilitas publik seperti ruang terbuka, taman kota, aula, atau area kegiatan lainnya. Melalui sistem ini, pengguna dapat melakukan peminjaman secara lebih cepat, transparan, dan teratur tanpa perlu datang langsung ke lokasi.
+            <td style="height: 100px; padding-left: 150px; color: rgb(37, 132, 37);"><p class="fw-bold fs-3 " >Space Connect</p></td>
+        </tr>
+        <tr>
+            <td class="info-web" style="height: 200px;">SpaceConnect adalah website peminjaman tempat umum yang dirancang untuk mempermudah masyarakat dalam menemukan, melihat ketersediaan, dan memesan berbagai fasilitas publik seperti ruang terbuka, taman kota, aula, dan area kegiatan lainnya. Melalui sistem ini, pengguna dapat melakukan peminjaman secara lebih cepat, transparan, dan teratur tanpa perlu datang langsung ke lokasi.
             </td>
         </tr>
 
         <tr>
             <div>
-                <table>
-                    <tr>
+                <table style="margin: auto; margin-top: 100px; width: 1100px;">
+                    <th colspan="3" style="margin: auto; height: 50px; margin: auto; text-align: center; padding-bottom: 30px;"><a href="daftar-tempat.html" class="link fs-4">Daftar Tempat</a></th>
+                    <tr style="height: 400px; margin: auto;">
                         <td class="daftar-tempat-home">
                             <div class="card" style="width: 18rem;">
                                 <img src="img/hutan-kota-senayan.jpg" class="card-img-top" alt="...">
@@ -95,10 +101,10 @@
             </div>
         </tr>
         <tr>
-            <div class="see-more"><a href="daftar-tempat.html">See More</a></div>
+            <div style="text-align: center;"><a href="daftar-tempat.html" class="see-more">See More</a></div>
         </tr>
         <tr>
-            <div class="closing-home">Pesan tempat publik dengan mudah dan teratur melalui platform ini untuk pengalaman peminjaman yang lebih efisien.</div>
+            <div class="closing-home">@ 2025 SpaceConnect.</div>
         </tr>
     </table>
 
@@ -108,6 +114,7 @@
             .then(data => {
                 document.getElementById("navbar").innerHTML = data;
             });
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

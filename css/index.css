@@ -1,20 +1,29 @@
 #carouselExampleCaptions{
-    height: 400px;
-    width: 700px;
+    height: 300px;
+    width: 450px;
     object-fit: cover;
-    margin: 35px;
+    margin: auto;
 }
 
 .carousel-item img{
-    height: 450px;
-    width: 700px;
+    height: 300px;
+    width: 450px;
     object-fit: cover;
 }
 
 .info-web{
     text-align: justify;
-    padding: 20px;
-    padding-right: 50px;
+    padding-right: 100px;
+    padding-top: 10px;
+    align-content: first baseline;
+}
+
+.link{
+    color: rgb(37, 132, 37);
+    text-decoration: none;
+    display: inline-block;
+    padding: 6 12px;
+    border-radius: 10px;
 }
 
 div .daftar-tempat-home{
@@ -24,8 +33,7 @@ div .daftar-tempat-home{
 }
 
 .card{
-    margin-top: 100px;
-    margin-left: 95px;
+    margin-left: 40px;
 }
 
 .card-body{
@@ -36,16 +44,25 @@ div .daftar-tempat-home{
     height: 50px;
     align-content: center;
     text-align: center;
-    margin-top: 20px;
     margin-bottom: 20px;
-    color: blue;
+    color: rgb(37, 132, 37);
+    text-decoration: none;
+    display: inline-block;
+    padding: 6 12px;
+    border-radius: 10px;
+}
+
+.see-more:hover{
+    background-color: rgba(37, 132, 37, 0.16);
+    border-radius: 20px;
 }
 
 .closing-home{
+    display: block;
     height: 200px;
     align-content: center;
     text-align: center;
-    font-weight: bold;
     margin-top: 20px;
-    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(37, 132, 37);
 }
