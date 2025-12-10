@@ -1,0 +1,17 @@
+/* NAVBAR GLOBAL */
+.navbar {
+    font-family: "Poppins", sans-serif;
+}
+
+.bg-success {
+    background-color: #2e7d32 !important; /* warna hijau utama */
+}
+
+.navbar-brand {
+    letter-spacing: 0.5px;
+}
+
+.btn-light {
+    border-radius: 10px !important;
+    font-weight: 500;
+}

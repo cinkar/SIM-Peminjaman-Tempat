@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Reservasi – SpaceConnect</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/usr-form-reservasi.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbar"></div>
+
+<!-- TITLE -->
+<section class="central-container text-center mt-5">
+    <h2 class="fw-bold title-green">Form Reservasi Fasilitas</h2>
+    <p class="intro-text mt-2">
+        Isi data reservasi Anda dengan lengkap agar proses peminjaman dapat diproses oleh admin.
+    </p>
+</section>
+
+<!-- FORM RESERVASI -->
+<section class="central-container mt-4 mb-5">
+    <div class="reservation-card p-4 shadow-sm rounded">
+
+        <form>
+
+            <div class="row g-4">
+
+                <!-- Nama Fasilitas -->
+                <div class="col-md-6">
+                    <label class="form-label label-green fw-semibold">Nama Fasilitas</label>
+                    <input type="text" class="form-control" value="Tebet Eco Park" readonly>
+                </div>
+
+                <!-- Keperluan -->
+                <div class="col-md-6">
+                    <label class="form-label label-green fw-semibold">Keperluan Kegiatan</label>
+                    <input type="text" class="form-control" placeholder="Contoh: Event Komunitas" required>
+                </div>
+
+                <!-- Tanggal Mulai -->
+                <div class="col-md-6">
+                    <label class="form-label label-green fw-semibold">Tanggal Mulai</label>
+                    <input type="date" class="form-control" required>
+                </div>
+
+                <!-- Tanggal Selesai -->
+                <div class="col-md-6">
+                    <label class="form-label label-green fw-semibold">Tanggal Selesai</label>
+                    <input type="date" class="form-control" required>
+                </div>
+
+                <!-- Waktu Mulai -->
+                <div class="col-md-6">
+                    <label class="form-label label-green fw-semibold">Waktu Mulai</label>
+                    <input type="time" class="form-control" required>
+                </div>
+
+                <!-- Waktu Selesai -->
+                <div class="col-md-6">
+                    <label class="form-label label-green fw-semibold">Waktu Selesai</label>
+                    <input type="time" class="form-control" required>
+                </div>
+
+                <!-- Jumlah Peserta -->
+                <div class="col-md-6">
+                    <label class="form-label label-green fw-semibold">Jumlah Peserta</label>
+                    <input type="number" class="form-control" placeholder="Masukkan jumlah peserta" required>
+                </div>
+
+                <!-- Kontak (WA) -->
+                <div class="col-md-6">
+                    <label class="form-label label-green fw-semibold">Nomor WhatsApp</label>
+                    <input type="number" class="form-control" placeholder="0812xxxxxx" required>
+                </div>
+
+                <!-- Catatan Tambahan -->
+                <div class="col-12">
+                    <label class="form-label label-green fw-semibold">Catatan Tambahan</label>
+                    <textarea class="form-control" rows="4" placeholder="Tambahkan catatan jika diperlukan..."></textarea>
+                </div>
+
+                <!-- BUTTON -->
+                <div class="col-12">
+                    <button class="btn btn-green w-100 py-2 mt-3">Ajukan Reservasi</button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-green mt-5">
+    <p class="text-center text-white m-0 py-3">© 2025 SpaceConnect</p>
+</footer>
+
+<!-- LOAD NAVBAR -->
+<script>
+fetch("navbar.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("navbar").innerHTML = html);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

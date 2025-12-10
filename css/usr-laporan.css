@@ -1,0 +1,50 @@
+body {
+    background: #f8faf9;
+    font-family: "Poppins", sans-serif;
+}
+
+/* LAYOUT */
+.central-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 16px;
+}
+
+/* TITLE STYLE */
+.title-green {
+    color: #2e7d32;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: auto;
+    color: #555;
+    font-size: 15px;
+}
+
+/* CARD */
+.report-card {
+    background: white;
+    border-radius: 16px;
+}
+
+/* LABEL */
+.label-green {
+    color: #2e7d32;
+}
+
+/* BUTTON */
+.btn-green {
+    background-color: #2e7d32;
+    color: white;
+    font-weight: 500;
+    border-radius: 12px;
+}
+.btn-green:hover {
+    background-color: #246528;
+}
+
+/* FOOTER */
+.footer-green {
+    background-color: #2e7d32;
+}

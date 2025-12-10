@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Reservasi – SpaceConnect</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/usr-status-reservasi.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbar"></div>
+
+<!-- TITLE -->
+<section class="central-container text-center mt-5">
+    <h2 class="fw-bold title-green">Status Reservasi Saya</h2>
+    <p class="intro-text mt-2">
+        Lihat daftar reservasi Anda beserta status terbaru dari admin.
+    </p>
+</section>
+
+<!-- RESERVATION STATUS LIST -->
+<section class="central-container mt-4 mb-5">
+
+    <!-- CARD 1 -->
+    <div class="reservation-card p-4 shadow-sm rounded mb-4">
+        <h4 class="fw-bold">Tebet Eco Park</h4>
+
+        <p class="mb-1"><strong>Tanggal:</strong> 12 Januari 2025</p>
+        <p class="mb-1"><strong>Waktu:</strong> 08:00 - 12:00</p>
+        <p class="mb-1"><strong>Jumlah Peserta:</strong> 50 orang</p>
+        <p class="mb-1"><strong>Status:</strong>
+            <span class="status-approved">Disetujui</span>
+        </p>
+
+        <p class="note mt-2">Catatan Admin: Silakan datang 15 menit sebelum jadwal.</p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="reservation-card p-4 shadow-sm rounded mb-4">
+        <h4 class="fw-bold">Hutan Kota Senayan</h4>
+
+        <p class="mb-1"><strong>Tanggal:</strong> 18 Januari 2025</p>
+        <p class="mb-1"><strong>Waktu:</strong> 10:00 - 14:00</p>
+        <p class="mb-1"><strong>Jumlah Peserta:</strong> 30 orang</p>
+        <p class="mb-1"><strong>Status:</strong>
+            <span class="status-pending">Menunggu Persetujuan</span>
+        </p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="reservation-card p-4 shadow-sm rounded mb-4">
+        <h4 class="fw-bold">Kebun Binatang Ragunan</h4>
+
+        <p class="mb-1"><strong>Tanggal:</strong> 23 Januari 2025</p>
+        <p class="mb-1"><strong>Waktu:</strong> 09:00 - 11:00</p>
+        <p class="mb-1"><strong>Jumlah Peserta:</strong> 20 orang</p>
+        <p class="mb-1"><strong>Status:</strong>
+            <span class="status-rejected">Ditolak</span>
+        </p>
+
+        <p class="note mt-2">Catatan Admin: Jadwal penuh, silakan pilih tanggal lain.</p>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-green mt-5">
+    <p class="py-3 text-white text-center m-0">© 2025 SpaceConnect</p>
+</footer>
+
+<!-- LOAD NAVBAR -->
+<script>
+fetch("navbar.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("navbar").innerHTML = html);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

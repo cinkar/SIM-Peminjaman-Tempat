@@ -1,0 +1,50 @@
+body {
+    background: #f8faf9;
+    font-family: "Poppins", sans-serif;
+}
+
+/* WIDTH CONTROL */
+.central-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 16px;
+}
+
+/* TITLE */
+.title-green {
+    color: #2e7d32;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: auto;
+    color: #555;
+    font-size: 15px;
+}
+
+/* CARD FORM */
+.reservation-card {
+    background: white;
+    border-radius: 18px;
+}
+
+/* LABEL STYLE */
+.label-green {
+    color: #2e7d32;
+}
+
+/* BUTTON */
+.btn-green {
+    background-color: #2e7d32;
+    color: white;
+    border-radius: 12px;
+    font-weight: 500;
+}
+.btn-green:hover {
+    background-color: #246528;
+}
+
+/* FOOTER */
+.footer-green {
+    background-color: #2e7d32;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan / Masukan – SpaceConnect</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/usr-laporan.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbar"></div>
+
+<!-- TITLE -->
+<section class="central-container text-center mt-5">
+    <h2 class="fw-bold title-green">Form Laporan / Masukan</h2>
+    <p class="intro-text mt-2">
+        Sampaikan laporan atau masukan terkait fasilitas publik maupun layanan disabilitas.
+        Data Anda akan diteruskan kepada admin untuk ditindaklanjuti.
+    </p>
+</section>
+
+<!-- FORM SECTION -->
+<section class="central-container mt-4">
+    <div class="report-card shadow-sm p-4 rounded">
+
+        <form>
+
+            <!-- PILIH FASILITAS -->
+            <div class="mb-3">
+                <label class="form-label label-green fw-semibold">Pilih Jenis Fasilitas</label>
+                <select class="form-select" required>
+                    <option value="" disabled selected>-- Pilih fasilitas terkait --</option>
+                    <option>Hutan Kota Senayan</option>
+                    <option>Tebet Eco Park</option>
+                    <option>Kebun Binatang Ragunan</option>
+                    <option>Jalur Landai</option>
+                    <option>Toilet Khusus Disabilitas</option>
+                    <option>Guiding Block</option>
+                </select>
+            </div>
+
+            <!-- DESKRIPSI -->
+            <div class="mb-3">
+                <label class="form-label label-green fw-semibold">Deskripsi Permasalahan</label>
+                <textarea class="form-control" rows="4" placeholder="Jelaskan permasalahan atau masukan Anda..." required></textarea>
+            </div>
+
+            <!-- UPLOAD FOTO -->
+            <div class="mb-3">
+                <label class="form-label label-green fw-semibold">Upload Foto (Opsional)</label>
+                <input type="file" class="form-control">
+            </div>
+
+            <!-- BUTTON -->
+            <button class="btn btn-green w-100 py-2 mt-3">Kirim Laporan</button>
+        </form>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-green mt-5">
+    <p class="text-center text-white m-0 py-3">© 2025 SpaceConnect</p>
+</footer>
+
+<!-- Load Navbar -->
+<script>
+fetch("navbar.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("navbar").innerHTML = html);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

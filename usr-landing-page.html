@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceConnect – Reservasi Fasilitas Publik</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/usr-landing-page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ========== NAVBAR (HIJAU + STICKY) ========== -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm px-4 py-3 sticky-top">
+    <a class="navbar-brand fw-bold fs-4 text-white" href="#">SpaceConnect</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+                <a id="loginButton" href="login.html" class="btn btn-light px-4 py-2 ms-3"
+                   style="font-size: 15px; border-radius: 10px; font-weight: 500;">
+                    Login
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- ========== HERO SECTION ========== -->
+<section class="central-container text-center mt-4">
+
+    <div id="heroCarousel" class="carousel slide carousel-fade hero-carousel mx-auto" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="img/tebet-eco-park.jpg" class="hero-img" alt="Tebet Eco Park">
+                <div class="hero-caption">
+                    <h2>Tebet Eco Park</h2>
+                    <p>Taman kota dengan ruang hijau luas untuk aktivitas publik.</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/hutan-kota-senayan.jpg" class="hero-img" alt="Hutan Kota Senayan">
+                <div class="hero-caption">
+                    <h2>Hutan Kota Senayan</h2>
+                    <p>Area rekreasi populer untuk olahraga dan kegiatan komunitas.</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/ragunan.jpg" class="hero-img" alt="Ragunan">
+                <div class="hero-caption">
+                    <h2>Kebun Binatang Ragunan</h2>
+                    <p>Destinasi wisata keluarga dan ruang publik terbuka.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+    </div>
+
+    <!-- CTA BUTTONS BELOW HERO -->
+    <div class="cta-buttons mt-4">
+        <a href="daftar-tempat.html" class="btn big-btn-green me-3 px-5 py-3">Reservasi Fasilitas</a>
+        <a href="fasilitas-disabilitas.html" class="btn big-btn-outline-green px-5 py-3">Fasilitas Disabilitas</a>
+    </div>
+
+    <!-- TITLE + DESCRIPTION -->
+    <h1 class="fw-bold mt-4 title-green">SpaceConnect</h1>
+
+    <p class="intro-text mt-2">
+        Sistem reservasi fasilitas publik dan layanan disabilitas yang mempermudah masyarakat 
+        dalam melihat ketersediaan tempat, melakukan peminjaman, serta menemukan fasilitas ramah 
+        disabilitas secara cepat, transparan, dan real-time.
+    </p>
+</section>
+
+
+<!-- ========== PREVIEW FASILITAS ========== -->
+<section class="central-container mt-5">
+    <h3 class="text-center fw-bold mb-4 title-green">Daftar Fasilitas Publik</h3>
+
+    <div class="row g-4 justify-content-center">
+
+        <!-- CARD 1 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="place-card shadow-sm">
+                <div class="card-img-wrap">
+                    <img src="img/hutan-kota-senayan.jpg">
+                </div>
+                <div class="card-body text-center p-3">
+                    <h5 class="fw-semibold">Hutan Kota Senayan</h5>
+                    <p>Tempat favorit untuk olahraga dan rekreasi publik.</p>
+                    <a href="#" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="place-card shadow-sm">
+                <div class="card-img-wrap">
+                    <img src="img/tebet-eco-park.jpg">
+                </div>
+                <div class="card-body text-center p-3">
+                    <h5 class="fw-semibold">Tebet Eco Park</h5>
+                    <p>Ruang publik hijau untuk aktivitas keluarga.</p>
+                    <a href="#" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="place-card shadow-sm">
+                <div class="card-img-wrap">
+                    <img src="img/ragunan.jpg">
+                </div>
+                <div class="card-body text-center p-3">
+                    <h5 class="fw-semibold">Ragunan</h5>
+                    <p>Area besar untuk wisata dan kegiatan komunitas.</p>
+                    <a href="#" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="usr-daftar-fasilitas.html" class="see-more">Lihat Semua Fasilitas</a>
+    </div>
+</section>
+
+
+<footer class="footer-green mt-5">
+    <p class="m-0 text-white text-center py-3">© 2025 SpaceConnect</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
