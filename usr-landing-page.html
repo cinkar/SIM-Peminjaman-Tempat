@@ -13,25 +13,7 @@
 <body>
 
 <!-- ========== NAVBAR (HIJAU + STICKY) ========== -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm px-4 py-3 sticky-top">
-    <a class="navbar-brand fw-bold fs-4 text-white" href="#">SpaceConnect</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto align-items-center">
-            <li class="nav-item">
-                <a id="loginButton" href="login.html" class="btn btn-light px-4 py-2 ms-3"
-                   style="font-size: 15px; border-radius: 10px; font-weight: 500;">
-                    Login
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
+<div id="navbar"></div>
 
 <!-- ========== HERO SECTION ========== -->
 <section class="central-container text-center mt-4">
@@ -84,8 +66,8 @@
 
     <!-- CTA BUTTONS BELOW HERO -->
     <div class="cta-buttons mt-4">
-        <a href="daftar-tempat.html" class="btn big-btn-green me-3 px-5 py-3">Reservasi Fasilitas</a>
-        <a href="fasilitas-disabilitas.html" class="btn big-btn-outline-green px-5 py-3">Fasilitas Disabilitas</a>
+        <a href="#fasilitas" class="btn big-btn-green me-3 px-5 py-3">Reservasi Fasilitas</a>
+        <a href="#fasilitas-disabilitas" class="btn big-btn-outline-green px-5 py-3">Fasilitas Disabilitas</a>
     </div>
 
     <!-- TITLE + DESCRIPTION -->
@@ -100,7 +82,7 @@
 
 
 <!-- ========== PREVIEW FASILITAS ========== -->
-<section class="central-container mt-5">
+<section id="fasilitas" class="central-container mt-5">
     <h3 class="text-center fw-bold mb-4 title-green">Daftar Fasilitas Publik</h3>
 
     <div class="row g-4 justify-content-center">
@@ -154,11 +136,72 @@
     </div>
 </section>
 
+<!-- PREVIEW FASILITAS DISABILITAS -->
+<section id="fasilitas-disabilitas" class="central-container mt-4 mb-5">
+    <h3 class="text-center fw-bold mb-4 title-green">Daftar Fasilitas Disabilitas</h3>
+
+    <div class="row g-3">
+
+        <!-- ITEM 1 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="dis-card shadow-sm rounded p-3">
+                <div class="card-img-wrap">
+                    <img src="img/tebet-eco-park.jpg" alt="Jalur Landai">
+                </div>
+                <h5 class="fw-bold mt-3">Jalur Landai</h5>
+                <p class="desc">Akses landai ramah kursi roda untuk memudahkan mobilitas pengguna.</p>
+
+                <p class="location"><strong>Lokasi:</strong> Tebet Eco Park, Hutan Kota Senayan</p>
+
+                <a href="usr-detail-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+            </div>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="dis-card shadow-sm rounded p-3">
+                <div class="card-img-wrap">
+                    <img src="img/hutan-kota-senayan.jpg" alt="Toilet Khusus Disabilitas">
+                </div>
+                <h5 class="fw-bold mt-3">Toilet Khusus Disabilitas</h5>
+                <p class="desc">Dilengkapi pegangan tangan, ruang luas, dan akses mudah.</p>
+
+                <p class="location"><strong>Lokasi:</strong> Area umum & titik utama taman kota</p>
+
+                <a href="usr-detail-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+            </div>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="dis-card shadow-sm rounded p-3">
+                <div class="card-img-wrap">
+                    <img src="img/gbk.jpg" alt="Guiding Block">
+                </div>
+                <h5 class="fw-bold mt-3">Guiding Block</h5>
+                <p class="desc">Jalur pemandu bagi pengguna tunanetra agar lebih mudah bernavigasi.</p>
+
+                <p class="location"><strong>Lokasi:</strong> Jalur pedestrian & ruang publik utama</p>
+
+                <a href="usr-detail-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <footer class="footer-green mt-5">
     <p class="m-0 text-white text-center py-3">© 2025 SpaceConnect</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        fetch("components/navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+            });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

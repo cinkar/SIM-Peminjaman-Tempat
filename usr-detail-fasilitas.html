@@ -74,7 +74,7 @@
     <div class="schedule-box shadow-sm p-4 rounded">
         <p class="text-muted">Lihat tanggal yang tersedia sebelum melakukan reservasi.</p>
 
-        <a href="usr-kalender.html" class="btn btn-green px-4 py-2">
+        <a href="kalender-tempat.html" class="btn btn-green px-4 py-2">
             Lihat Kalender
         </a>
     </div>
@@ -86,7 +86,7 @@
 </footer>
 
 <script>
-fetch("navbar.html")
+fetch("components/navbar.html")
     .then(res => res.text())
     .then(html => document.getElementById("navbar").innerHTML = html);
 </script>

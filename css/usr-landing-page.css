@@ -48,8 +48,8 @@ body {
 
 /* CTA BUTTONS */
 .big-btn-green {
-    background-color: #2e7d32;
-    color: white;
+    background-color: #2e7d32 !important;
+    color: white !important;
     font-size: 20px;
     border-radius: 12px;
 }
@@ -58,8 +58,8 @@ body {
 }
 
 .big-btn-outline-green {
-    border: 3px solid #2e7d32;
-    color: #2e7d32;
+    border: 3px solid #2e7d32 !important;
+    color: #2e7d32 !important;
     font-size: 20px;
     border-radius: 12px;
 }
@@ -113,6 +113,7 @@ body {
     text-decoration: none;
     font-weight: 500;
 }
+
 .see-more:hover {
     text-decoration: underline;
 }

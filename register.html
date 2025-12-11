@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    <div id="navbar"></div>
+
     <div class="background"></div>
 
     <div class="register-container">
@@ -43,6 +45,14 @@
 
         </form>
     </div>
+
+    <script>
+        fetch("components/navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+            });
+    </script>
 
 </body>
 </html>
