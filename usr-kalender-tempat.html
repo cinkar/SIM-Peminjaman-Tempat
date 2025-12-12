@@ -97,7 +97,7 @@
     </script>
 
     <script>
-        fetch("navbar.html")
+        fetch("components/navbar.html")
             .then(res => res.text())
             .then(data => {
                 document.getElementById("navbar").innerHTML = data;
@@ -105,7 +105,7 @@
     </script>
 
     <script>
-        fetch("form-peminjaman.html")
+        fetch("form-peminjaman.php")
         .then(response => response.text())
         .then(html => {
             document.getElementById("modalContainer").innerHTML = html;

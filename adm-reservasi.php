@@ -1,3 +1,19 @@
+<?php
+    require 'php/koneksi.php';
+
+    session_start();
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+        header("Location: login.html");
+        exit;
+    }
+
+    // Ambil data user dari session
+    $username = $_SESSION['username'];
+
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -29,63 +45,64 @@
 
         <!-- TOPBAR -->
         <nav class="topbar d-flex justify-content-between align-items-center">
-            <h5 class="m-0">Manajemen Reservasi</h5>
-            <button class="btn btn-primary btn-sm">Logout</button>
+            <h5 class="m-0">Reservasi</h5>
+            <a href="SIM-Peminjaman_Tempat/php/logout.php"><button class="btn btn-primary btn-sm">Logout</button></a>
         </nav>
 
         <div class="container mt-4">
 
             <!-- TITLE -->
-            <h5 class="fw-semibold mb-3">Daftar Reservasi Masuk</h5>
+            <h5 class="fw-semibold mb-3">Daftar Reservasi Disetujui</h5>
 
             <!-- TABLE -->
             <div class="card p-3">
                 <div class="table-responsive">
+                    <?php
+                        $username = $_SESSION['username'];
+
+                        $query = "SELECT * FROM reservasi";
+                        $stmt = mysqli_prepare($conn, $query);
+                        
+                        mysqli_stmt_execute($stmt);
+                        $result = mysqli_stmt_get_result($stmt);
+
+                        if (!$result) {
+                            die("Query gagal: " . mysqli_error($conn));
+                        }
+                    ?>
                     <table class="table align-middle text-center">
                         <thead>
                             <tr>
                                 <th>Nama User</th>
                                 <th>Fasilitas</th>
-                                <th>Tanggal Mulai</th>
-                                <th>Tanggal Selesai</th>
-                                <th>Status</th>
-                                <th>Aksi</th>
+                                <th>Waktu & Tanggal Mulai</th>
+                                <th>Waktu & Tanggal Selesai</th>
+                                <th>Setujui</th>
                             </tr>
                         </thead>
 
                         <tbody>
+                            <?php while($row = mysqli_fetch_assoc($result)): ?>
                             <tr>
-                                <td>Andi Saputra</td>
-                                <td>Ruang Rapat 1</td>
-                                <td>10 Jan 2025</td>
-                                <td>11 Jan 2025</td>
-                                <td><span class="badge bg-warning">Menunggu</span></td>
                                 <td>
-                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetail">Detail</button>
+                                    <?php echo htmlspecialchars($row['username']); ?>
+                                </td>
+                                <td>
+                                    <?php echo htmlspecialchars($row['namaTempat']); ?>
+                                </td>
+                                <td>
+                                    <?php echo htmlspecialchars($row['waktuMulai']); ?> <?php echo htmlspecialchars($row['tanggalMulai']); ?>
+                                </td>
+                                <td>
+                                    <?php echo htmlspecialchars($row['waktuSelesai']); ?>
+                                    <?php echo htmlspecialchars($row['tanggalSelesai']); ?>
+                                </td>
+                                <td>
+                                    <button class="btn btn-success btn-sm" data-bs-toggle="modal"
+                                    >Setujui</button>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td>Dewi Lestari</td>
-                                <td>Aula Utama</td>
-                                <td>09 Jan 2025</td>
-                                <td>09 Jan 2025</td>
-                                <td><span class="badge bg-success">Disetujui</span></td>
-                                <td>
-                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetail">Detail</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Rafi Hidayat</td>
-                                <td>Ruang Rapat 2</td>
-                                <td>08 Jan 2025</td>
-                                <td>08 Jan 2025</td>
-                                <td><span class="badge bg-danger">Ditolak</span></td>
-                                <td>
-                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetail">Detail</button>
-                                </td>
-                            </tr>
+                            <?php endwhile; ?>
                         </tbody>
 
                     </table>

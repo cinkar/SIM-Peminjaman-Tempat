@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,8 +16,9 @@
 
 <body>
 
-<!-- ========== NAVBAR (HIJAU + STICKY) ========== -->
-<div id="navbar"></div>
+<?php include 'components/navbar.php'; ?>
+
+<!-- <div id="navbar"></div> -->
 
 <!-- ========== HERO SECTION ========== -->
 <section class="central-container text-center mt-4">
@@ -96,7 +101,7 @@
                 <div class="card-body text-center p-3">
                     <h5 class="fw-semibold">Hutan Kota Senayan</h5>
                     <p>Tempat favorit untuk olahraga dan rekreasi publik.</p>
-                    <a href="#" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                    <a href="/SIM-PEMINJAMAN-TEMPAT/usr-detail-fasilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
                 </div>
             </div>
         </div>
@@ -110,7 +115,7 @@
                 <div class="card-body text-center p-3">
                     <h5 class="fw-semibold">Tebet Eco Park</h5>
                     <p>Ruang publik hijau untuk aktivitas keluarga.</p>
-                    <a href="#" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                    <a href="/SIM-PEMINJAMAN-TEMPAT/usr-detail-fasilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
                 </div>
             </div>
         </div>
@@ -124,7 +129,7 @@
                 <div class="card-body text-center p-3">
                     <h5 class="fw-semibold">Ragunan</h5>
                     <p>Area besar untuk wisata dan kegiatan komunitas.</p>
-                    <a href="#" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                    <a href="/SIM-PEMINJAMAN-TEMPAT/usr-detail-fasilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
                 </div>
             </div>
         </div>
@@ -153,7 +158,7 @@
 
                 <p class="location"><strong>Lokasi:</strong> Tebet Eco Park, Hutan Kota Senayan</p>
 
-                <a href="usr-detail-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                <a href="/SIM-Peminjaman-Tempat/usr-detail-fasilitas-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
             </div>
         </div>
 
@@ -168,7 +173,7 @@
 
                 <p class="location"><strong>Lokasi:</strong> Area umum & titik utama taman kota</p>
 
-                <a href="usr-detail-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                <a href="/SIM-Peminjaman-Tempat/usr-detail-fasilitas-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
             </div>
         </div>
 
@@ -183,7 +188,7 @@
 
                 <p class="location"><strong>Lokasi:</strong> Jalur pedestrian & ruang publik utama</p>
 
-                <a href="usr-detail-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                <a href="/SIM-Peminjaman-Tempat/usr-detail-fasilitas-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
             </div>
         </div>
     </div>
@@ -194,12 +199,11 @@
 </footer>
 
     <script>
-        fetch("components/navbar.html")
+        fetch("components/navbar.php")
             .then(res => res.text())
             .then(data => {
                 document.getElementById("navbar").innerHTML = data;
             });
-
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

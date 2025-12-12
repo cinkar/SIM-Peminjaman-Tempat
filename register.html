@@ -12,21 +12,21 @@
     <div class="register-container">
         <h2>Daftar Akun Baru</h2>
 
-        <form>
+        <form action="/SIM-Peminjaman-Tempat/php/registrasi.php" method="POST">
 
             <div class="input-group">
                 <label>Username</label>
-                <input type="text" placeholder="Masukkan Username" required>
+                <input type="text" name="username" placeholder="Masukkan Username" required>
             </div>
 
             <div class="input-group">
                 <label>Nomor HP</label>
-                <input type="text" placeholder="Masukkan No HP" required>
+                <input type="text" name="phone" placeholder="Masukkan No HP" required>
             </div>
 
             <div class="input-group">
                 <label>Password</label>
-                <input type="password" placeholder="Masukkan Password" required>
+                <input type="password" name="password" placeholder="Masukkan Password" required>
             </div>
 
             <div class="input-group">
@@ -34,8 +34,9 @@
                 <input type="password" placeholder="Konfirmasi Password" required>
             </div>
 
-            <button type="submit" class="btn">Daftar</button>
+            <button type="submit" name="register" class="btn">Daftar</button>
 
+            
             <p class="redirect">Sudah punya akun? 
                 <a href="login.html">Masuk di sini</a>
             </p>

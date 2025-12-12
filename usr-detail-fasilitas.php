@@ -1,3 +1,40 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+        header("Location: login.html");
+        exit;
+    }
+    
+    require 'php/koneksi.php';
+
+    // Ambil semua data dari tabel tempat
+    $query = "SELECT * FROM fasilitasdifabel";
+    $result = mysqli_query($conn, $query);
+
+    if (!$result) {
+        die("Query gagal: " . mysqli_error($conn));
+    }
+
+    
+    if (isset($_GET['id'])) {
+        $id = intval($_GET['id']); // ambil ID dari URL
+        $query = "SELECT * FROM tempat WHERE id = $id";
+        $result = mysqli_query($conn, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            // sekarang $row berisi data yang sesuai ID
+        } else {
+            echo "Data tidak ditemukan.";
+            exit;
+        }
+    } else {
+        echo "ID tidak dikirim.";
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -20,7 +57,7 @@
 <body>
 
 <!-- NAVBAR -->
-<div id="navbar"></div>
+<?php include 'components/navbar.php'; ?>
 
 <!-- HEADER TITLE -->
 <section class="central-container mt-4">
@@ -28,13 +65,14 @@
 </section>
 
 <!-- DETAIL CONTENT -->
+<?php if ($row): ?>
 <section class="central-container mt-4">
     <div class="row g-4">
 
         <!-- LEFT: IMAGE -->
         <div class="col-lg-6">
             <div class="detail-img-wrap shadow-sm">
-                <img src="img/tebet-eco-park.jpg" class="img-fluid rounded" alt="Tebet Eco Park">
+                <img src="php/show-img-tempat.php?id=<?php echo $row['id']; ?>" alt="Foto Tempat">
             </div>
         </div>
 
@@ -42,23 +80,25 @@
         <div class="col-lg-6">
             <div class="detail-info p-4 shadow-sm rounded">
 
-                <h3 class="fw-bold mb-2">Tebet Eco Park</h3>
+                <h3 class="fw-bold mb-2"><?php echo htmlspecialchars($row['namaTempat']); ?></h3>
                 <p class="text-muted">
-                    Ruang publik hijau untuk aktivitas masyarakat, cocok untuk kegiatan komunitas, olahraga,
-                    event keluarga, dan berbagai acara lainnya.
+                    <?php echo htmlspecialchars($row['deskripsiTempat']); ?>
                 </p>
 
                 <div class="mt-3">
-                    <p><strong class="label">Kapasitas:</strong> 300 orang</p>
-                    <p><strong class="label">Lokasi:</strong> Tebet, Jakarta Selatan</p>
-                    <p><strong class="label">Jam Operasional:</strong> 06.00 – 19.00</p>
+                    <p><strong class="label">Kapasitas:</strong></strong> <?php echo htmlspecialchars($row['kapasitas']); ?></p>
+                    <p><strong class="label">Lokasi:</strong> <?php echo htmlspecialchars($row['lokasi']); ?></p>
+                    <p>
+                        <strong class="label">Jam Operasional:</strong>
+                        <?php echo htmlspecialchars($row['jamOperasi']); ?>
+                    </p>
                     <p><strong class="label">Status:</strong> 
                         <span class="status-available">Tersedia</span>
                     </p>
                 </div>
 
                 <!-- CTA BUTTON -->
-                <a href="usr-form-reservasi.html" class="btn btn-green w-100 mt-3 py-2">
+                <a href="usr-form-reservasi.php" class="btn btn-green w-100 mt-3 py-2">
                     Reservasi Sekarang
                 </a>
 
@@ -66,6 +106,9 @@
         </div>
     </div>
 </section>
+<?php else: ?>
+<p>Data fasilitas tidak ditemukan.</p>
+<?php endif; ?>
 
 <!-- JADWAL SECTION -->
 <section class="central-container mt-5 mb-5">
@@ -86,7 +129,7 @@
 </footer>
 
 <script>
-fetch("components/navbar.html")
+fetch("components/navbar.php")
     .then(res => res.text())
     .then(html => document.getElementById("navbar").innerHTML = html);
 </script>
