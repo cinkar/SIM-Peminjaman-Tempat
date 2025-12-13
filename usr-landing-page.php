@@ -1,5 +1,24 @@
 <?php
 session_start();
+
+// Koneksi database untuk mengambil data fasilitas
+require 'php/koneksi.php';
+
+// Query untuk mengambil 3 fasilitas pertama
+$query = "SELECT * FROM tempat LIMIT 3";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    die("Query gagal: " . mysqli_error($conn));
+}
+
+// Query untuk mengambil 3 fasilitas disabilitas pertama
+$query_difabel = "SELECT * FROM fasilitasdifabel LIMIT 3";
+$result_difabel = mysqli_query($conn, $query_difabel);
+
+if (!$result_difabel) {
+    die("Query gagal: " . mysqli_error($conn));
+}
 ?>
 
 <!DOCTYPE html>
@@ -92,47 +111,31 @@ session_start();
 
     <div class="row g-4 justify-content-center">
 
-        <!-- CARD 1 -->
+        <?php
+        // Loop untuk menampilkan data fasilitas dari database
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <!-- CARD FASILITAS DINAMIS -->
         <div class="col-md-4 col-sm-6">
             <div class="place-card shadow-sm">
                 <div class="card-img-wrap">
-                    <img src="img/hutan-kota-senayan.jpg">
+                    <img src="php/show-img-tempat.php?id=<?php echo $row['id']; ?>" alt="<?php echo htmlspecialchars($row['namaTempat']); ?>">
                 </div>
                 <div class="card-body text-center p-3">
-                    <h5 class="fw-semibold">Hutan Kota Senayan</h5>
-                    <p>Tempat favorit untuk olahraga dan rekreasi publik.</p>
-                    <a href="/SIM-PEMINJAMAN-TEMPAT/usr-detail-fasilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                    <h5 class="fw-semibold"><?php echo htmlspecialchars($row['namaTempat']); ?></h5>
+                    <p><?php echo htmlspecialchars($row['deskripsiTempat']); ?></p>
+                    <a href="/SIM-PEMINJAMAN-TEMPAT/usr-detail-fasilitas.php?id=<?php echo $row['id']; ?>" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
                 </div>
             </div>
         </div>
+        <?php
+            }
+        } else {
+            echo '<p class="text-center">Belum ada data fasilitas.</p>';
+        }
+        ?>
 
-        <!-- CARD 2 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="place-card shadow-sm">
-                <div class="card-img-wrap">
-                    <img src="img/tebet-eco-park.jpg">
-                </div>
-                <div class="card-body text-center p-3">
-                    <h5 class="fw-semibold">Tebet Eco Park</h5>
-                    <p>Ruang publik hijau untuk aktivitas keluarga.</p>
-                    <a href="/SIM-PEMINJAMAN-TEMPAT/usr-detail-fasilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="place-card shadow-sm">
-                <div class="card-img-wrap">
-                    <img src="img/ragunan.jpg">
-                </div>
-                <div class="card-body text-center p-3">
-                    <h5 class="fw-semibold">Ragunan</h5>
-                    <p>Area besar untuk wisata dan kegiatan komunitas.</p>
-                    <a href="/SIM-PEMINJAMAN-TEMPAT/usr-detail-fasilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
-                </div>
-            </div>
-        </div>
 
     </div>
 
@@ -147,50 +150,31 @@ session_start();
 
     <div class="row g-3">
 
-        <!-- ITEM 1 -->
+        <?php
+        // Loop untuk menampilkan data fasilitas disabilitas dari database
+        if (mysqli_num_rows($result_difabel) > 0) {
+            while ($row_difabel = mysqli_fetch_assoc($result_difabel)) {
+        ?>
+        <!-- CARD FASILITAS DISABILITAS DINAMIS -->
         <div class="col-md-4 col-sm-6">
             <div class="dis-card shadow-sm rounded p-3">
                 <div class="card-img-wrap">
-                    <img src="img/tebet-eco-park.jpg" alt="Jalur Landai">
+                    <img src="php/show-img-difabel.php?id=<?php echo $row_difabel['id']; ?>" alt="<?php echo htmlspecialchars($row_difabel['namaFasilitas']); ?>">
                 </div>
-                <h5 class="fw-bold mt-3">Jalur Landai</h5>
-                <p class="desc">Akses landai ramah kursi roda untuk memudahkan mobilitas pengguna.</p>
+                <h5 class="fw-bold mt-3"><?php echo htmlspecialchars($row_difabel['namaFasilitas']); ?></h5>
+                <p class="desc"><?php echo htmlspecialchars($row_difabel['deskripsiFasilitas']); ?></p>
 
-                <p class="location"><strong>Lokasi:</strong> Tebet Eco Park, Hutan Kota Senayan</p>
+                <p class="location"><strong>Lokasi:</strong> <?php echo htmlspecialchars($row_difabel['lokasiFasilitas']); ?></p>
 
-                <a href="/SIM-Peminjaman-Tempat/usr-detail-fasilitas-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
+                <a href="/SIM-PEMINJAMAN-TEMPAT/usr-detail-fasilitas-disabilitas.php?id=<?php echo $row_difabel['id']; ?>" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
             </div>
         </div>
-
-        <!-- ITEM 2 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="dis-card shadow-sm rounded p-3">
-                <div class="card-img-wrap">
-                    <img src="img/hutan-kota-senayan.jpg" alt="Toilet Khusus Disabilitas">
-                </div>
-                <h5 class="fw-bold mt-3">Toilet Khusus Disabilitas</h5>
-                <p class="desc">Dilengkapi pegangan tangan, ruang luas, dan akses mudah.</p>
-
-                <p class="location"><strong>Lokasi:</strong> Area umum & titik utama taman kota</p>
-
-                <a href="/SIM-Peminjaman-Tempat/usr-detail-fasilitas-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
-            </div>
-        </div>
-
-        <!-- ITEM 3 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="dis-card shadow-sm rounded p-3">
-                <div class="card-img-wrap">
-                    <img src="img/gbk.jpg" alt="Guiding Block">
-                </div>
-                <h5 class="fw-bold mt-3">Guiding Block</h5>
-                <p class="desc">Jalur pemandu bagi pengguna tunanetra agar lebih mudah bernavigasi.</p>
-
-                <p class="location"><strong>Lokasi:</strong> Jalur pedestrian & ruang publik utama</p>
-
-                <a href="/SIM-Peminjaman-Tempat/usr-detail-fasilitas-disabilitas.html" class="btn btn-green w-100 mt-auto">Lihat Detail</a>
-            </div>
-        </div>
+        <?php
+            }
+        } else {
+            echo '<p class="text-center">Belum ada data fasilitas disabilitas.</p>';
+        }
+        ?>
     </div>
 </section>
 
