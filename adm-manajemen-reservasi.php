@@ -19,10 +19,10 @@
         $data = mysqli_fetch_assoc($q);
 
         if ($data) {
-            // 2. Insert ke tabel reservasi
+            // 2. Insert ke tabel reservasi dengan status 'Disetujui'
             $insert = mysqli_query($conn, "
                 INSERT INTO reservasi 
-                (username, namaTempat, deskripsiKeperluan, tanggalMulai, tanggalSelesai, waktuMulai, waktuSelesai, jumlahPeserta, phone, catatanTambahan)
+                (username, namaTempat, deskripsiKeperluan, tanggalMulai, tanggalSelesai, waktuMulai, waktuSelesai, jumlahPeserta, phone, catatanTambahan, status)
                 VALUES 
                 (
                     '{$data['username']}',
@@ -34,7 +34,8 @@
                     '{$data['waktuSelesai']}',
                     '{$data['jumlahPeserta']}',
                     '{$data['phone']}',
-                    '{$data['catatanTambahan']}'
+                    '{$data['catatanTambahan']}',
+                    'Disetujui'
                 )
             ");
 
