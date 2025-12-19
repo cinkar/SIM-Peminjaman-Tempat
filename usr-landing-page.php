@@ -140,7 +140,7 @@ if (!$result_difabel) {
     </div>
 
     <div class="text-center mt-4">
-        <a href="usr-daftar-fasilitas.html" class="see-more">Lihat Semua Fasilitas</a>
+        <a href="/SIM-PEMINJAMAN-TEMPAT/usr-daftar-fasilitas.php" class="see-more">Lihat Semua Fasilitas</a>
     </div>
 </section>
 
@@ -175,6 +175,10 @@ if (!$result_difabel) {
             echo '<p class="text-center">Belum ada data fasilitas disabilitas.</p>';
         }
         ?>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/SIM-PEMINJAMAN-TEMPAT/usr-fasilitas-disabilitas.php" class="see-more">Lihat Semua Fasilitas Disabilitas</a>
     </div>
 </section>
 
