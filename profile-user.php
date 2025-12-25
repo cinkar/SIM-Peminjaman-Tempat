@@ -17,9 +17,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile User</title>
+  <title>Profile User - SpaceConnect</title>
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="navbar.css">
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .footer-green {
+      background-color: rgb(37, 132, 37);
+    }
+  </style>
 </head>
 <body>
 
@@ -134,7 +146,18 @@
                       <?php echo htmlspecialchars($row['waktuSelesai']); ?>
                       <?php echo htmlspecialchars($row['tanggalSelesai']); ?>
                     </td>
-                    <td><span class="badge bg-warning">Menunggu</span></td>
+                    <td>
+                      <?php 
+                        $status = isset($row['status']) ? $row['status'] : 'Disetujui';
+                        $badgeClass = 'bg-success'; // Default untuk Disetujui
+                        if ($status == 'Menunggu') {
+                          $badgeClass = 'bg-warning';
+                        } elseif ($status == 'Ditolak') {
+                          $badgeClass = 'bg-danger';
+                        }
+                      ?>
+                      <span class="badge <?php echo $badgeClass; ?>"><?php echo htmlspecialchars($status); ?></span>
+                    </td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
@@ -143,6 +166,11 @@
 
     </div>
   </div>
+
+<!-- FOOTER -->
+<footer class="footer-green mt-5">
+    <p class="m-0 text-white text-center py-3">© 2025 SpaceConnect</p>
+</footer>
 
     <script>
         fetch("components/navbar.php")

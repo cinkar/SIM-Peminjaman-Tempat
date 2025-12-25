@@ -117,7 +117,7 @@
     <div class="schedule-box shadow-sm p-4 rounded">
         <p class="text-muted">Lihat tanggal yang tersedia sebelum melakukan reservasi.</p>
 
-        <a href="kalender-tempat.html" class="btn btn-green px-4 py-2">
+        <a href="/SIM-PEMINJAMAN-TEMPAT/kalender-tempat.php" class="btn btn-green px-4 py-2">
             Lihat Kalender
         </a>
     </div>

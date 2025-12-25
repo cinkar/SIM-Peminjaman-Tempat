@@ -11,7 +11,7 @@
                             <a class="nav-link" href="/SIM-PEMINJAMAN-TEMPAT/usr-daftar-fasilitas.php" style="color: #fff !important;">Daftar Tempat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/SIM-PEMINJAMAN-TEMPAT/kalender-tempat.html" style="color: #fff !important;">Kalender Tempat</a>
+                            <a class="nav-link" href="/SIM-PEMINJAMAN-TEMPAT/kalender-tempat.php" style="color: #fff !important;">Kalender Tempat</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/SIM-PEMINJAMAN-TEMPAT/usr-fasilitas-disabilitas.php" style="color: #fff !important;">Fasilitas Disabilitas</a>
