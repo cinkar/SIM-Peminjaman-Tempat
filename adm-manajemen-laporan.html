@@ -22,16 +22,7 @@
 <div class="d-flex">
 
     <!-- SIDEBAR -->
-    <div class="sidebar">
-        <h4 class="sidebar-title">Admin Panel</h4>
-
-        <a href="#" class="sidebar-item">📊 Dashboard</a>
-        <a href="#" class="sidebar-item">🏢 Manajemen Fasilitas</a>
-        <a href="#" class="sidebar-item">📝 Manajemen Reservasi</a>
-        <a href="#" class="sidebar-item">♿ Fasilitas Disabilitas</a>
-        <a href="#" class="sidebar-item active">📢 Notifikasi & Laporan</a>
-        <a href="#" class="sidebar-item">👤 Akun User</a>
-    </div>
+    <div id="sidebar"></div>
 
     <!-- MAIN CONTENT -->
     <div class="content flex-grow-1">
@@ -162,6 +153,14 @@
         </div>
     </div>
 </div>
+
+    <script>
+        fetch("adm-sidebar.php")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("sidebar").innerHTML = data;
+            });
+    </script>
 
 
 <!-- Bootstrap JS -->

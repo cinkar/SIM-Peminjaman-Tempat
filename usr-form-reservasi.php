@@ -3,7 +3,7 @@
 
     session_start();
     if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-        header("Location: login.html");
+        header("Location: login.php");
         exit;
     }
 
@@ -11,6 +11,7 @@
     $username = $_SESSION['username'];
 
     $username = $_SESSION['username'];
+    $namaMitra = "";
     $namaTempat = "";
     $deskripsiKeperluan = "";
     $tanggalMulai = "";
@@ -21,10 +22,25 @@
     $phone = "";
     $catatanTambahan = "";
 
+    $username = $_SESSION['username'];
+
     // --- SIMPAN DATA RESERVASI ---
     if(isset($_POST['simpan'])){
-        $username = $_SESSION['username'];
-        $namaTempat = $_POST['namaTempat'];
+        $idTempat = $_POST['idTempat'];
+
+        // Ambil namaTempat & namaMitra otomatis
+        $qTempat = mysqli_prepare($conn, "SELECT namaTempat, namaMitra FROM tempat WHERE id = ?");
+        mysqli_stmt_bind_param($qTempat, "i", $idTempat);
+        mysqli_stmt_execute($qTempat);
+        $resultTempat = mysqli_stmt_get_result($qTempat);
+        $dataTempat = mysqli_fetch_assoc($resultTempat);
+
+        if (!$dataTempat) {
+            die("Tempat tidak ditemukan");
+        }
+
+        $namaTempat = $dataTempat['namaTempat'];
+        $namaMitra  = $dataTempat['namaMitra'];
         $deskripsiKeperluan = $_POST['deskripsiKeperluan'];
         $tanggalMulai = $_POST['tanggalMulai']; 
         $tanggalSelesai = $_POST['tanggalSelesai'];
@@ -34,12 +50,13 @@
         $phone = $_POST['phone'];
         $catatanTambahan = $_POST['catatanTambahan'];
 
-        $query_sql = "INSERT INTO pengajuanreservasi (username, namaTempat, tanggalMulai, tanggalSelesai, waktuMulai, waktuSelesai, jumlahPeserta, deskripsiKeperluan, phone, catatanTambahan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
+        $query_sql = "INSERT INTO pengajuanreservasi (username, namaTempat, namaMitra, tanggalMulai, tanggalSelesai, waktuMulai, waktuSelesai, jumlahPeserta, deskripsiKeperluan, phone, catatanTambahan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
 
         $stmt = mysqli_prepare($conn, $query_sql);
-        mysqli_stmt_bind_param($stmt, "ssssssssss", 
+        mysqli_stmt_bind_param($stmt, "sssssssssss", 
             $username,
-            $namaTempat, 
+            $namaTempat,
+            $namaMitra,
             $tanggalMulai, 
             $tanggalSelesai,
             $waktuMulai,
@@ -104,8 +121,16 @@
 
                 <!-- Nama Fasilitas -->
                 <div class="col-md-6">
-                    <label class="form-label label-green fw-semibold">Nama Tempat</label>
-                    <input type="text" name="namaTempat" class="form-control" id="namaTempat" value="<?php echo $namaTempat ?>" placeholder="Masukkan nama tempat" required>
+                    <label class="form-label fw-semibold">Nama Tempat</label>
+                    <select name="idTempat" class="form-control" required>
+                        <option value="">-- Pilih Tempat --</option>
+                        <?php
+                        $q = mysqli_query($conn, "SELECT id, namaTempat FROM tempat");
+                        while ($t = mysqli_fetch_assoc($q)) {
+                            echo "<option value='{$t['id']}'>{$t['namaTempat']}</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
 
                 <!-- Keperluan -->

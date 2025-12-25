@@ -178,6 +178,14 @@ if (!$result_difabel) {
     </div>
 </section>
 
+<section class="mt-5">
+    <div class="join-mitra d-flex justify-content-center align-items-center flex-wrap">
+        <p style="color: green;">Join sebagai Mitra Kami dan Tingkatkan Visibilitas Fasilitas Anda!</p>
+        <a class="btn btn-success ms-3" href="/SIM-Peminjaman-Tempat/mitra-register.html">Daftar Mitra</a>
+        <a href="/SIM-Peminjaman-Tempat/mitra-login.php" class="btn btn-success ms-3">Masuk Sebagai Mitra</a>
+    </div>
+</section>
+
 <footer class="footer-green mt-5">
     <p class="m-0 text-white text-center py-3">© 2025 SpaceConnect</p>
 </footer>

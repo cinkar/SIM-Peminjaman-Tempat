@@ -1,5 +1,5 @@
 <?php
-require 'koneksi.php';
+require_once 'koneksi.php';
 
 if (!isset($_GET['id'])) {
     die("ID tidak dikirim.");
@@ -15,6 +15,7 @@ if (!$result) {
 }
 
 $row = mysqli_fetch_assoc($result);
+
 
 if ($row && !empty($row['foto'])) {
     $foto = $row['foto'];

@@ -118,6 +118,24 @@ body {
     text-decoration: underline;
 }
 
+/* join mitra */
+.join-mitra {
+    background-color: #439549;
+    padding: 40px;
+    flex-direction: row;
+}
+
+.join-mitra .btn {
+    background-color: rgb(75, 185, 75);
+    margin: 10px;
+    border-radius: 12px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center; /* sejajar horizontal */
+    align-items: center; /* sejajar vertikal */
+    flex-wrap: wrap;     /* agar rapi di layar kecil */
+}
+
 /* FOOTER */
 .footer-green {
     background-color: #2e7d32;

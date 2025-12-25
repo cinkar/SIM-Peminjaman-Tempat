@@ -2,6 +2,15 @@
     
     require 'php/koneksi.php';
 
+    session_start();
+
+    if (!isset($_SESSION['namaMitra'])) {
+        header("Location: mitra-login.php");
+        exit;
+    }
+
+    $namaMitra = $_SESSION['namaMitra'];
+
     $namaTempat = '';
     $deskripsiTempat = '';
     $kapasitas = '';        
@@ -19,6 +28,7 @@
         $data = mysqli_fetch_assoc($result_edit);
 
         if($data){
+            $namaMitra = $data['namaMitra'] ?? '';
             $namaTempat = $data['namaTempat'] ?? '';
             $deskripsiTempat = $data['deskripsiTempat'] ?? '';    
             $kapasitas = $data['kapasitas'] ?? '';        
@@ -46,6 +56,7 @@
 
     // --- SIMPAN (CREATE &  UPDATE) ---
     if(isset($_POST['simpan'])){
+        $namaMitra = $_POST['namaMitra'];
         $namaTempat = $_POST['namaTempat'];
         $deskripsiTempat = $_POST['deskripsiTempat'];    
         $kapasitas = $_POST['kapasitas'];        
@@ -82,12 +93,13 @@
         } else {
             // --- INSERT NEW ---
             $foto = file_get_contents($_FILES['foto']['tmp_name']);
-            $stmt = mysqli_prepare($conn, "INSERT INTO tempat (namaTempat, deskripsiTempat, kapasitas, lokasi, jamOperasi, foto) VALUES (?, ?, ?, ?, ?, ?)");
-            mysqli_stmt_bind_param($stmt, "sssssb", $namaTempat, $deskripsiTempat, $kapasitas, $lokasi, $jamOperasi, $foto);
-            mysqli_stmt_send_long_data($stmt, 5, $foto);
+            $stmt = mysqli_prepare($conn, "INSERT INTO tempat (namaMitra, namaTempat, deskripsiTempat, kapasitas, lokasi, jamOperasi, foto) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            mysqli_stmt_bind_param($stmt, "ssssssb", $namaMitra, $namaTempat, $deskripsiTempat, $kapasitas, $lokasi, $jamOperasi, $foto);
+            mysqli_stmt_send_long_data($stmt, 6, $foto);
 
             if(mysqli_stmt_execute($stmt)){
                 $sukses = "Berhasil memasukkan data baru";
+                $namaMitra = '';
                 $namaTempat = '';
                 $deskripsiTempat = '';
                 $kapasitas = '';        
@@ -103,8 +115,11 @@
     }
 
     // Ambil semua data dari tabel tempat
-    $query = "SELECT * FROM tempat";
-    $result = mysqli_query($conn, $query);
+    $query = "SELECT * FROM tempat WHERE namaMitra = ?";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, "s", $namaMitra);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 
     if (!$result) {
         die("Query gagal: " . mysqli_error($conn));
@@ -216,6 +231,11 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
+                            <label class="form-label">Nama Mitra</label>
+                            <input type="text" name="namaMitra" class="form-control" id="namaMitra" value="<?php echo $namaMitra ?>" placeholder="Misal: spaceConncetPlace">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
                             <label class="form-label">Nama Fasilitas</label>
                             <input type="text" name="namaTempat" class="form-control" id="namaTempat" value="<?php echo $namaTempat ?>" placeholder="Misal: Ruang Rapat 2">
                         </div>
@@ -318,7 +338,7 @@
 <?php endif; ?>
 
     <script>
-        fetch("adm-sidebar.html")
+        fetch("adm-sidebar.php")
             .then(res => res.text())
             .then(data => {
                 document.getElementById("sidebar").innerHTML = data;

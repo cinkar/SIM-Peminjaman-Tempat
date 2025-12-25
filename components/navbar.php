@@ -1,7 +1,7 @@
    
         <table class="nav" style="width: 100%; background-color: rgb(37, 132, 37);">
             <tr style="height:60px;">
-                <td style="width: 60px; padding-left: 20px; padding-right: 10px;"><img src="../img/logo.png" alt="logo" style="width: 30px; border-radius: 25px;"></td>
+                <td style="width: 60px; padding-left: 20px; padding-right: 10px;"><img src="SIM-Peminjaman-Tempat/img/logo.png" alt="logo" style="width: 30px; border-radius: 25px;"></td>
                 <td style="flex: 1; width: 1000px;">
                     <ul class="nav nav-pills">
                         <li class="nav-item">

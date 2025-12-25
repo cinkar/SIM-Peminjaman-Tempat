@@ -18,7 +18,7 @@
     <div class="sidebar">
         <h4 class="sidebar-title">Admin Panel</h4>
 
-        <a href="adm-dashboard.html" class="sidebar-item">📊 Dashboard</a>
+        <a href="adm-dashboard.php" class="sidebar-item">📊 Dashboard</a>
         <a href="adm-manajemen-fasilitas.php" class="sidebar-item">🏢 Manajemen Fasilitas</a>
         <a href="adm-manajemen-reservasi.php" class="sidebar-item">📝 Manajemen Reservasi</a>
         <a href="adm-reservasi.php" class="sidebar-item">✅ Reservasi</a>

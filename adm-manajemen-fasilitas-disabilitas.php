@@ -306,7 +306,7 @@
 <?php endif; ?>
 
     <script>
-        fetch("adm-sidebar.html")
+        fetch("adm-sidebar.php")
             .then(res => res.text())
             .then(data => {
                 document.getElementById("sidebar").innerHTML = data;

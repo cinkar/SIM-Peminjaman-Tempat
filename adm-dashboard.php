@@ -1,6 +1,14 @@
 <?php
     require 'php/koneksi.php';
+    session_start();
+        if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+        header("Location: mitra-login.php");
+        exit;
+    }
 
+    // Ambil data user dari session
+    $namaMitra = $_SESSION['namaMitra'];
+   
     // Menghitung total reservasi masuk
     $query = "SELECT COUNT(*) AS total FROM pengajuanreservasi";
     $result = mysqli_query($conn, $query);
@@ -67,9 +75,9 @@
             <nav class="topbar d-flex justify-content-between align-items-center">
                 <h5 class="m-0">Dashboard Admin</h5>
                 <div class="d-flex align-items-center">
-                    <span class="me-3">Admin</span>
-                    <a href="SIM-Peminjaman_Tempat/php/logout.php"><button class="btn btn-primary btn-sm">Logout</button></a>
-                    
+                    <span class="me-3"><?php echo htmlspecialchars($namaMitra); ?></span>
+                    <a href="php/logout.php"><button class="btn btn-primary btn-sm">Logout</button></a>
+
                 </div>
             </nav>
 
@@ -134,7 +142,7 @@
 
 
     <script>
-        fetch("adm-sidebar.html")
+        fetch("adm-sidebar.php")
             .then(res => res.text())
             .then(data => {
                 document.getElementById("sidebar").innerHTML = data;

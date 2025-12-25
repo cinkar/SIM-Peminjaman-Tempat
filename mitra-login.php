@@ -1,30 +1,20 @@
 <?php
-session_start();
-
 require 'php/koneksi.php';
 
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
+    $namaMitra = $_POST['namaMitra'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    $query_sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+    $query_sql = "SELECT * FROM mitra WHERE namaMitra='$namaMitra' AND password='$password'";
     $result = mysqli_query($conn, $query_sql);
 
     if ($result && mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
-
-        // Cek apakah username adalah admin
-        if ($row['username'] === 'adminSpaceConnect') {
             $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $username;
-            header("Location: /SIM-PEMINJAMAN-TEMPAT/control-panel-adm.php");
-            exit;
-        } else {
-            $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $username;
-            header("Location: /SIM-PEMINJAMAN-TEMPAT/usr-landing-page.php");
-            exit;
-        }
+            $_SESSION['namaMitra'] = $namaMitra;
+            header("Location: /SIM-PEMINJAMAN-TEMPAT/adm-dashboard.php");
     } else {
         $error = "Invalid username or password.";
     }
@@ -51,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form action="" method="POST">
                 <div class="input-group">
-                    <label>Username</label>
-                    <input type="text" name="username" placeholder="Masukkan Username" required>
+                    <label>Nama Mitra</label>
+                    <input type="text" name="namaMitra" placeholder="Masukkan Nama Mitra" required>
                 </div>
 
                 <div class="input-group">
@@ -63,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="btn">Masuk</button>
 
                 <p class="redirect">Belum punya akun? 
-                    <a href="register.html">Daftar di sini</a>
+                    <a href="mitra-register.html">Daftar di sini</a>
                 </p>
             </form>
         </div>

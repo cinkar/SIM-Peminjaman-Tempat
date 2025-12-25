@@ -8,10 +8,8 @@
     }
 
     // Ambil data user dari session
-    $username = $_SESSION['username'];
-
+    $namaMitra = $_SESSION['namaMitra'];
     
-
 ?>
 
 <!DOCTYPE html>
@@ -58,9 +56,9 @@
             <div class="card p-3">
                 <div class="table-responsive">
                     <?php
-                        $username = $_SESSION['username'];
+                        $namaMitra = $_SESSION['namaMitra'];
 
-                        $query = "SELECT * FROM reservasi";
+                        $query = "SELECT * FROM reservasi WHERE namaMitra = '$namaMitra'";
                         $stmt = mysqli_prepare($conn, $query);
                         
                         mysqli_stmt_execute($stmt);
@@ -173,7 +171,7 @@
 
 
     <script>
-        fetch("adm-sidebar.html")
+        fetch("adm-sidebar.php")
             .then(res => res.text())
             .then(data => {
                 document.getElementById("sidebar").innerHTML = data;

@@ -7,8 +7,8 @@
         exit;
     }
 
-    // Ambil data user dari session
-    $username = $_SESSION['username'];
+    // Ambil data mitra dari session
+    $namaMitra = $_SESSION['namaMitra'];
 
     // SETUJUI = Simpan ke tabel reservasi, lalu hapus dari pengajuan
     if (isset($_GET['setujui'])) {
@@ -22,10 +22,11 @@
             // 2. Insert ke tabel reservasi
             $insert = mysqli_query($conn, "
                 INSERT INTO reservasi 
-                (username, namaTempat, deskripsiKeperluan, tanggalMulai, tanggalSelesai, waktuMulai, waktuSelesai, jumlahPeserta, phone, catatanTambahan)
+                (username, namaMitra, namaTempat, deskripsiKeperluan, tanggalMulai, tanggalSelesai, waktuMulai, waktuSelesai, jumlahPeserta, phone, catatanTambahan)
                 VALUES 
                 (
                     '{$data['username']}',
+                    '{$data['namaMitra']}',
                     '{$data['namaTempat']}',
                     '{$data['deskripsiKeperluan']}',
                     '{$data['tanggalMulai']}',
@@ -112,9 +113,9 @@
             <div class="card p-3">
                 <div class="table-responsive">
                     <?php
-                        $username = $_SESSION['username'];
+                        $namaMitra = $_SESSION['namaMitra'];
 
-                        $query = "SELECT * FROM pengajuanreservasi";
+                        $query = "SELECT * FROM pengajuanreservasi WHERE namaMitra = '$namaMitra'";
                         $stmt = mysqli_prepare($conn, $query);
                         
                         mysqli_stmt_execute($stmt);
@@ -236,7 +237,7 @@
 
 
     <script>
-        fetch("adm-sidebar.html")
+        fetch("adm-sidebar.php")
             .then(res => res.text())
             .then(data => {
                 document.getElementById("sidebar").innerHTML = data;
